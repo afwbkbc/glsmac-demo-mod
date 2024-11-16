@@ -8,6 +8,8 @@ You can use this mod as base and/or reference for creation of your own mods.
 
 There is no versioning yet but most of the time latest version of this mod will work with latest 'stable' version of GLSMAC.
 
+![image](https://github.com/user-attachments/assets/f6fef87a-b865-4293-9b61-9d58a5fed5c4)
+
 ### Quickstart
 
 1) Clone or download and unpack it to `GLSMAC_data/mods`, so path should be `<glsmac_location>/GLSMAC_data/mods/glsmac-demo-mod`
