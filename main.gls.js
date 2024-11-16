@@ -1,8 +1,8 @@
 /**
- * Every mod starts with #main entrypoint in main.gls.js file. Mods get executed after builtin entrypoint, in same order as specified on command line.
- * 'gm' here stands "Game Manager" which is what configures game state before it's launched.
- * See scripts of GLSMAC_data/main to understand builtin logic.
- * However, mods don't need to copy it, instead they change or override it where needed.
+ * Every mod starts with #main entrypoint in main.gls.js file. Mods get executed after core scripts, in same order as specified on command line.
+ * 'gm' here stands for "Game Manager" which is what configures game state before it's launched.
+ * See scripts of GLSMAC_data/default to understand core logic.
+ * Mods don't need to copy it, instead they change or override it where needed.
  */
 #main((gm) => {
 
@@ -22,13 +22,12 @@
 
 	/**
 	 * Now we configure the process of starting game.
-	 * Note - this method (as others) is run after builtin, so some things are already set
+	 * Note - this method (as others) is run after core scripts, so some things are already set
 	 */
 	gm.on('start', (e) => {
 
 		/**
-		 * e.game is running game object, it can be used to manipulate game
-		 * Note that game is not fully started yet. It is currently initializing.
+		 * e.game is game object, it can be used to manipulate game before it starts.
 		 */
 
 		// ...
@@ -38,7 +37,7 @@
 		e.game.on('start', (e) => {
 
 			/**
-			 * Here we initialize the game state and perform startup actions.
+			 * Here game is actually started, we can perform various startup actions.
 			 */
 
 			// for example, we can show a message (it will be printed in game and added to Messages panel).
@@ -79,7 +78,7 @@
 		});
 
 		/**
-		 * This handles turn transition. Builtin scripts already have some logic, here we can do something else after it.
+		 * This handles turn transition. Core scripts already have some logic, here we can do something else after it.
 		 */
 		e.game.on('turn', (e) => {
 
@@ -90,8 +89,8 @@
 		});
 
 		/**
-		 * Many, MANY more possibilities, I will add more example here later, feel free to also inspect builtin scripts in GLSMAC_data/default.
-		 * Everything that is possible in builtin scripts should be possible in mods, it's same scripting engine.
+		 * Many, MANY more possibilities, I will add more example here later, feel free to also inspect core scripts in GLSMAC_data/default.
+		 * Everything that is possible in core scripts should be possible in mods, it's same scripting engine.
 		 * Some things ( for example calling functions from wrong callbacks ) weren't tested and can break, it will get more stable in later versions.
 		 * Have fun :)
 		 */
